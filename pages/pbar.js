@@ -16,53 +16,39 @@ const Bar = (props) => {
 
 
 const Pbar = (props) => {
-  const [percent, setPercent] = useState(0);
+  const wrapperStyle = {
+    /*border: '1px solid black',*/
+    width: '100%', 
+    display: 'flex', 
+    justifyContent: 'center', 
+  }
 
   const progressBar = {
-    //border: '1px solid #333',
+    /*border: '1px solid #333',*/
     //backgroundColor: 'gray',
     position: 'relative',
     height: '20px',
-    width: '350px',
-    borderRadius: '50px',
+    width: '80%',
   };
 
   const fillerStyle = {
-    //border: '1px solid #333',
+    /*border: '1px solid #333',*/
     background: '#00FA9A',
     height: '30%',
-    borderRadius: 'inherit',
+    borderRadius: '30px',
     transition: 'width .2s ease-in',
-    width: `${percent}%`
+    width: `${props.percent}%`
   }
 
-  const nextStep = () => {
-    if(percent + props.step >= 100) return
-    setPercent(percent + props.step);
-  }
 
   return (
-    <>
+    <section style={wrapperStyle}>
       <Bar
         progressBar={progressBar}
         fillerStyle={fillerStyle}
-        percent={percent}
+        percent={props.percent}
       />
-      
-      <div style={{ marginTop: '20px' }}>
-        <button onClick={nextStep} style={{cursor: 'pointer'}}>
-          Next
-        </button>
-      </div>
-      
-      {/* Added for convenience of viewing */}
-      <div
-        style={{marginTop: '10px', color: 'blue', marginBottom: '15px', cursor: 'pointer'}}
-        onClick={() => setPercent(0)}
-      >
-        Reset
-      </div>
-    </>
+    </section>
   );
 }
 
