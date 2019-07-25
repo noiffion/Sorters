@@ -1,11 +1,13 @@
-function builtIn = (array) => {
-  array.sort((a, b) => a - b);
-}
-
 
 export default () => {
   self.addEventListener("message", event => {
     if (!event) return;
+
+
+    function builtIn(array) {
+      array.sort((a, b) => a - b);
+    }
+
 
     const arr = event.data;
 

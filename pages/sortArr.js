@@ -10,7 +10,7 @@ import count                          from './../workers/count';
 
 const sortArr = (array) => {
   
-  const sortFuncs = null; //[bubble, insertion, selection, merge, heap, quick, count, builtin];
+  const sortFuncs = [bubble, insertion, selection, merge, heap, quick, count, builtin];
 
   sortFuncs.forEach(func => {
     const arrCopy = [...array];
