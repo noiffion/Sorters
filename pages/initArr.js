@@ -12,27 +12,15 @@ const InitArr = (props) => {
 
   const arr = props.array;
 
-  const arrayStyle = (width) => {
-    const rept = Math.floor(width / 110);
-    return {
-      border: '1px solid gray',
-      margin: '10px 0 0 0',  
-      width: '90%',
-      display: 'grid',
-      gridTemplateColumns: `repeat(${rept}, 1fr)`,
-      gridGap: '10px',
-      justifyContent: 'space-evenly',
-    } 
-  }
-  
-  const displayArr = arr.map((number, i) => {
-    return (<div key={"initArr_"+i} style={{justifySelf: 'center'}}> {number} </div>);
+  let displayNumbers = '';
+  arr.forEach((number) => {
+    displayNumbers += ` ${number} `;
   })
-
+ 
   return (
     <section style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-      <div className="grid-container" style={arrayStyle(width)}>
-        {displayArr}
+      <div style={{width: '90%', border: '1px solid #1E90FF', padding: '20px'}}>
+        {displayNumbers}
       </div>
     </section>
   );

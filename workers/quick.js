@@ -1,6 +1,4 @@
 function quickSort(array) {
-  // In place quick sort -> modifies the input array
-  // http://www.algomation.com/algorithm/quick-sort-visualization
 
   const swap = (leftI, rightI) => {
     [array[rightI], array[leftI]] = [array[leftI], array[rightI]];
@@ -33,4 +31,17 @@ function quickSort(array) {
 }
 
 
-export default quickSort;
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    quickSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
+};

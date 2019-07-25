@@ -14,8 +14,20 @@ function selectionSort(array) {
           [array[i], array[minIndex]] = [array[minIndex], array[i]];
         }
       }
-      return array;
 }
 
 
-export default selectionSort;
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    selectionSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
+};

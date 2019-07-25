@@ -2,26 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Head                           from 'next/head';
 import Form                           from 'react-bootstrap/Form';
 import Button                         from 'react-bootstrap/Button';
+import sortArr                        from './sortArr'
 import Pbar                           from './pbar';
 import Select                         from './select';
 import InitArr                        from './initArr';
-import bubble                         from './../algos/bubble';
-import insertion                      from './../algos/insertion';
-import selection                      from './../algos/selection';
-import merge                          from './../algos/merge';
-import heap                           from './../algos/heap';
-import quick                          from './../algos/quick';
-import count                          from './../algos/count';
-import arrCreator                     from "./../workers/arrCreator";
-import WebWorker                      from "./../workers/workerSetup";
-
-
-
-const builtIn = (array) => {
-  array.sort((a, b) => a - b);    
-}
-
-const sortFuncs = [bubble, insertion, selection, merge, heap, quick, count, builtIn];
+import arrCreator                     from './../workers/arrCreator';
 
 
 const Index = () => {
@@ -36,14 +21,6 @@ const Index = () => {
   const [correct, setCorrect] = useState(true);
 
   const [percent, setPercent] = useState(0);
-
-  const fetchWebWorker = (worker) => {    
-    worker.postMessage("Fetch Users");    
-    worker.addEventListener("message", event => {    
-      //this.setState({ count: event.data.length });    
-    });    
-  }
-
 
 
   const sizeChange = (event) => {
@@ -74,10 +51,8 @@ const Index = () => {
     const code = arrCreator.toString();    
     const blob = new Blob(["(" + code + ")()"]);
     const worker = new Worker(URL.createObjectURL(blob));
-    console.log(worker);
     worker.postMessage([size, digits]);
     worker.onmessage = (event) => {
-      console.log(typeof event.data, event.data);
       const final = typeof event.data === 'object';
       if (final) {
           setArray(event.data);
@@ -87,7 +62,7 @@ const Index = () => {
           setPercent(event.data);
       }
     }
-  } 
+  }
 
   const prepareSort = (event) => {
     setShowAlert(false);
@@ -109,8 +84,7 @@ const Index = () => {
   }
 
   const sort = () => {
-    const arrayCopy = [...array];
-
+    sortArr(array);
     setReadyToSort(false);
     setArray([]);
   }

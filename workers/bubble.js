@@ -14,8 +14,20 @@ function bubbleSort(array) {
     }
     i++;
   }
-  return array;
 }
 
 
-export default bubbleSort;
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    bubbleSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
+};

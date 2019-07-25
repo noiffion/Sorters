@@ -1,5 +1,3 @@
-// heap.js
-
 function heapSort(array) {
   let heapSize = array.length;
 
@@ -33,6 +31,19 @@ function heapSort(array) {
   return array;
 }
 
-module.exports = {
-  heap: heapSort
+
+
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    heapSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
 };

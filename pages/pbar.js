@@ -19,12 +19,13 @@ const Pbar = (props) => {
   const wrapperStyle = {
     /*border: '1px solid black',*/
     width: '100%', 
+    margin: '20px 0 0 0',
     display: 'flex', 
     justifyContent: 'center', 
   }
 
   const progressBar = {
-    /*border: '1px solid #333',*/
+    /*border: '1px solid blue',*/
     //backgroundColor: 'gray',
     position: 'relative',
     height: '20px',
@@ -32,7 +33,7 @@ const Pbar = (props) => {
   };
 
   const fillerStyle = {
-    /*border: '1px solid #333',*/
+    /*border: '1px solid green',*/
     background: '#00FA9A',
     height: '30%',
     borderRadius: '30px',

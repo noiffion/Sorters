@@ -33,4 +33,17 @@ function mergeSort(array) {
 }
 
 
-export default mergeSort;
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    mergeSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
+};

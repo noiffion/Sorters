@@ -1,5 +1,3 @@
-// count.js
-
 function countingSort(array) {
   const length = array.length;
   if (length < 2) return array;
@@ -33,4 +31,17 @@ function countingSort(array) {
 }
 
 
-export default countingSort;
+export default () => {
+  self.addEventListener("message", event => {
+    if (!event) return;
+
+    const arr = event.data;
+
+    const start = new Date();
+    countingSort(arr);
+    const finish = new Date();
+    const duration = finish - start;
+
+    postMessage([duration, arr]);
+  });
+};
