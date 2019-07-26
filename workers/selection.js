@@ -3,7 +3,7 @@ export default () => {
   self.addEventListener("message", event => {
     if (!event) return;
 
-    function selectionSort(array) {
+    function selection(array) {
       const len = array.length;
       let minIndex;
     
@@ -25,10 +25,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    selectionSort(arr);
+    selection(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, selection.name]);
   });
 };

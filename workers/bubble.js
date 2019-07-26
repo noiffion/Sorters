@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
           
 
-    function bubbleSort(array) {
+    function bubble(array) {
       const len = array.length;
       let swapped = true;
       let i = 1;
@@ -26,10 +26,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    bubbleSort(arr);
+    bubble(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, bubble.name]);
   });
 };

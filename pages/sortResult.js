@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import Alert               from 'react-bootstrap/Alert';
-import PropTypes           from 'prop-types';
+import React, { useState }   from 'react';
+import styled, { keyframes } from 'styled-components';
+import Alert                 from 'react-bootstrap/Alert';
+import PropTypes             from 'prop-types';
 
 
 const SortResult = (props) => {
@@ -21,7 +22,7 @@ const SortResult = (props) => {
       //border: '1px solid black',
       borderRadius: '5px',
       width: '100%',
-      height: '50px',
+      height: '70px',
       padding: '3%',
       backgroundColor: `${bckColor}`,
       transition: 'background-color 3s',
@@ -32,12 +33,27 @@ const SortResult = (props) => {
     }
   }
 
+  const spinning = keyframes`
+    from { transform: rotate(0deg); }    
+    to { transform: rotate(360deg); }      
+  `;
+
+  const Loading = styled.div`
+    background-image: url('./static/loading.png');
+    border-radius: 50%;
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    animation: ${spinning} infinite 3s linear;
+  `;
+
   const pendingStyle = () => {
     return {
-      //border: '1px solid black',
+      //border: '1px solid purple' 
       borderRadius: '5px',
+      backgroundColor: 'hsl(0, 0%, 96%)',
       width: '100%',
-      height: '50px',
+      height: '70px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -50,14 +66,16 @@ const SortResult = (props) => {
   const sorted = (
     <div style={sortedStyle(props.funcName)}>
       <div> {funcName} <i className='fas fa-long-arrow-alt-right'></i>
-           <span> {props.doneIn} thSecs </span> 
+           <span> {props.doneIn / 1000} sec </span> 
       </div>
     </div>
   );
 
   const pending = (
     <div style={pendingStyle()}>
-      <span> {funcName} </span>
+      <div> {funcName} </div>
+      <span style={{margin: '0 5px'}}> </span>
+      <Loading />
     </div>
   );
 
@@ -73,7 +91,7 @@ SortResult.propTypes = {
   funcName: PropTypes.string.isRequired,
   ready: PropTypes.bool.isRequired,
   displaySorted: PropTypes.string.isRequired,
-  doneIn: PropTypes.string.isRequired,
+  doneIn: PropTypes.number.isRequired,
 }
 
 

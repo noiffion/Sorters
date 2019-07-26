@@ -7,7 +7,7 @@ export default () => {
     if (!event) return;
 
 
-    function heapSort(array) {
+    function heap(array) {
       let heapSize = array.length;
     
       const heapify = (arr, oldI, heapSize) => {
@@ -43,10 +43,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    heapSort(arr);
+    heap(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, heap.name]);
   });
 };

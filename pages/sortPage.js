@@ -9,30 +9,14 @@ import SortResult                     from './sortResult';
 const SortPage = (props) => {
   const [width, setWidth] = useState(1500);
     
-  useEffect(() => {
-    const handleWidth = () => setWidth(window.innerWidth);
-
-    window.addEventListener('load', handleWidth);
-    window.addEventListener('resize', handleWidth);
-
-    return () => {
-      window.removeEventListener('resize', handleWidth);
-      window.removeEventListener('load', handleWidth);
-    }
-  }, []);
-
-  const gridStyle = width => {
-    //const rep = Math.min(Math.max(1, Math.floor(width / 250)), 3);
-    const rep = 1;
-    return {
-      //border: '1px solid purple',
-      width: '100%',
-      margin: 0,
-      padding: 0,
-      display: 'grid',
-      gridTemplateColumns: `repeat(${rep}, auto)`,
-      gridRowGap: '5px',
-    }
+  const gridStyle = {
+    //border: '1px solid purple',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    display: 'grid',
+    gridTemplateColumns: `repeat(1, auto)`,
+    gridRowGap: '5px',
   }
 
   const gridWrapperStyle = {
@@ -44,15 +28,10 @@ const SortPage = (props) => {
   }
 
   const sorts = [
-    props.bubble, 
-    props.insertion, 
-    props.selection, 
-    props.merge, 
-    props.heap, 
-    props.quick,
-    props.count, 
-    props.builtin
+    props.bubble, props.insertion, props.selection, props.merge, 
+    props.heap, props.quick, props.count, props.builtin
   ];
+  sorts.sort((funcA, funcB) => funcA.time - funcB.time);
 
   const gridItems = sorts.map((sort, i) => {
     const funcName = sort.name;
@@ -81,15 +60,16 @@ const SortPage = (props) => {
     )
   });
 
-  //console.log(gridItems);
-
   return (
     <>
       <section style={gridWrapperStyle}>
-        <div className="container" style={gridStyle(width)}>
+        <div className="container" style={gridStyle}>
           {gridItems}
         </div>
       </section>
+      <div style={{width: '100%', display: 'flex', justifyContent: 'center', margin: '50px 0'}}>
+        <Button variant="dark" onClick={props.restart}> Restart </Button>
+      </div>
     </>
   );
 }
@@ -104,9 +84,9 @@ SortPage.propTypes = {
   quick: PropTypes.object.isRequired,
   count: PropTypes.object.isRequired,
   builtin: PropTypes.object.isRequired,
-  allSorted: PropTypes.bool.isRequired,
   setStartToSort: PropTypes.func.isRequired,
   setReadyToSort: PropTypes.func.isRequired,
+  restart: PropTypes.func.isRequired,
 }
 
 

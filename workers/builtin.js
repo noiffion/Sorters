@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
 
 
-    function builtIn(array) {
+    function builtin(array) {
       array.sort((a, b) => a - b);
     }
 
@@ -12,10 +12,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    builtIn(arr);
+    builtin(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, builtin.name]);
   });
 };

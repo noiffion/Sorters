@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
 
 
-    function countingSort(array) {
+    function count(array) {
       const length = array.length;
       if (length < 2) return array;
     
@@ -39,10 +39,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    countingSort(arr);
+    count(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, count.name]);
   });
 };

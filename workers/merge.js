@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
 
 
-    function mergeSort(array) {
+    function merge(array) {
     
       const merge = (lArr, rArr) => {
         let sorted = [];
@@ -36,14 +36,13 @@ export default () => {
       return sort(array);
     }
 
-
     const arr = event.data;
 
     const start = new Date();
-    mergeSort(arr);
+    const retArr = merge(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, retArr, merge.name]);
   });
 };

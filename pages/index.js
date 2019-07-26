@@ -17,7 +17,6 @@ const Index = () => {
   const [digits, setDigits] = useState(1);
   const [readyToSort, setReadyToSort] = useState(false);
   const [startToSort, setStartToSort] = useState(false);
-  const [allSorted, setAllSorted] = useState(false);
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState('');
@@ -25,14 +24,20 @@ const Index = () => {
   const [correct, setCorrect] = useState(true);
   const [percent, setPercent] = useState(0);
 
-  const [bubble, setBubble] = useState({name: 'bubble', done: false, time: 0, sorted: []});
-  const [insertion, setInsertion] = useState({name: 'insertion', done: false, time: 0, sorted: []});
-  const [selection, setSelection] = useState({name: 'selection', done: false, time: 0, sorted: []});
-  const [merge, setMerge] = useState({name: 'merge', done: false, time: 0, sorted: []});
-  const [heap, setHeap] = useState({name: 'heap', done: false, time: 0, sorted: []});
-  const [quick, setQuick] = useState({name: 'quick', done: false, time: 0, sorted: []});
-  const [count, setCount] = useState({name: 'count', done: false, time: 0, sorted: []});
-  const [builtin, setBuiltin] = useState({name: 'builtin', done: false, time: 0, sorted: []});
+  const [bubble, setBubble] = useState({name: 'bubble', done: false, time: Infinity, sorted: []});
+  const [insertion, setInsertion] = useState({
+    name: 'insertion', done: false, time: Infinity, sorted: []
+  });
+  const [selection, setSelection] = useState({
+    name: 'selection', done: false, time: Infinity, sorted: []
+  });
+  const [merge, setMerge] = useState({name: 'merge', done: false, time: Infinity, sorted: []});
+  const [heap, setHeap] = useState({name: 'heap', done: false, time: Infinity, sorted: []});
+  const [quick, setQuick] = useState({name: 'quick', done: false, time: Infinity, sorted: []});
+  const [count, setCount] = useState({name: 'count', done: false, time: Infinity, sorted: []});
+  const [builtin, setBuiltin] = useState({
+    name: 'builtin', done: false, time: Infinity, sorted: []}
+  );
 
   const sizeChange = (event) => {
     const arraySize = event.target.value;
@@ -94,38 +99,52 @@ const Index = () => {
     setTimeout(() => setShowAlert(false), 1000);
   }
 
-  const rank = () => {
-    const sorts = [bubble, insertion, selection, merge, heap, quick, count, builtin];
-    const allSort = sorts.every(sort => sort.done);
-
-    if (allSort) setAllSorted(true);
-  }
-
   const sort = () => {
     const sorts = [bubble, insertion, selection, merge, heap, quick, count, builtin];
     const setSorts = [
       setBubble, setInsertion, setSelection, setMerge, 
       setHeap, setQuick, setCount, setBuiltin
     ];
-    parallelSorts(array, sorts, setSorts, rank);
+    parallelSorts(array, sorts, setSorts);
     //sequentialSorts(array);
     const arrayCopy = array;    
     setStartToSort(true);
-    //setReadyToSort(false);
-    //setStartToSort(false);
     setArray([]);
+  }
+
+  const restart = () => {
+    setArray([]);
+    setSize(1)
+    setDigits(1);
+    setReadyToSort(false);
+    setStartToSort(false);
+
+    setShowAlert(false);
+    setAlertMsg('');
+    setAlertType('firebrick');
+    setCorrect(true);
+    setPercent(0);
+
+    setBubble({name: 'bubble', done: false, time: Infinity, sorted: []});
+    setInsertion({name: 'insertion', done: false, time: Infinity, sorted: []});
+    setSelection({name: 'selection', done: false, time: Infinity, sorted: []});
+    setMerge({name: 'merge', done: false, time: Infinity, sorted: []});
+    setHeap({name: 'heap', done: false, time: Infinity, sorted: []});
+    setQuick({name: 'quick', done: false, time: Infinity, sorted: []});
+    setCount({name: 'count', done: false, time: Infinity, sorted: []});
+    setBuiltin({name: 'builtin', done: false, time: Infinity, sorted: []}); 
   }
 
   return (
     <>
       <Head>
         <link
-         rel="stylesheet" crossorigin="anonymous"
+         rel="stylesheet" crossOrigin="anonymous"
          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         />
         <link 
-         rel="stylesheet" crossorigin="anonymous"
+         rel="stylesheet" crossOrigin="anonymous"
          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
         />
@@ -162,9 +181,9 @@ const Index = () => {
           quick={quick}
           count={count}
           builtin={builtin}
-          allSorted={allSorted}
           setStartToSort={setStartToSort}
           setReadyToSort={setReadyToSort}
+          restart={restart}    
          />
       )}
       </main>

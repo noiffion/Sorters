@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
 
 
-    function quickSort(array) {
+    function quick(array) {
     
       const swap = (leftI, rightI) => {
         [array[rightI], array[leftI]] = [array[leftI], array[rightI]];
@@ -32,7 +32,6 @@ export default () => {
           qSort(array, partI + 1, highI);
         }
       }
-    
       qSort(array);
     }
 
@@ -40,10 +39,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    quickSort(arr);
+    quick(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, quick.name]);
   });
 };

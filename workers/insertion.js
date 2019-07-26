@@ -4,7 +4,7 @@ export default () => {
     if (!event) return;
 
 
-    function insertionSort(array) {
+    function insertion(array) {
       const len = array.length;
       let ind;
     
@@ -22,10 +22,10 @@ export default () => {
     const arr = event.data;
 
     const start = new Date();
-    insertionSort(arr);
+    insertion(arr);
     const finish = new Date();
     const duration = finish - start;
 
-    postMessage([duration, arr]);
+    postMessage([duration, arr, insertion.name]);
   });
 };

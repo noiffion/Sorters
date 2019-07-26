@@ -18,7 +18,6 @@ const Filler = (props) => {
 const Bar = (props) => {
   const style = {
     //border: '1px solid blue',
-    //backgroundColor: 'gray',
     position: 'relative',
     height: '20px',
     width: '80%',
