@@ -7,8 +7,12 @@ const InitArr = (props) => {
   const [width, setWidth] = useState(1500);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
-  })
+    const handleWidth = () => {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWidth);
+    return () => window.removeEventListener('resize', handleWidth);
+  }, []);
 
   const arr = props.array;
 

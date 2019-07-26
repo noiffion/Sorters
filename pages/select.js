@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form                from 'react-bootstrap/Form';
 import Button              from 'react-bootstrap/Button';
+import Link                from 'next/link';
 import PropTypes           from 'prop-types';
 import AlertMsg            from './alertMsg';
 
@@ -35,13 +36,14 @@ const Select = (props) => {
         ) : ( 
           <div style={{height: '42px', width: '100%'}}> {' '} </div>
         )}
-        <Button variant="info" type="submit" block onClick={props.prepareSort}>
-          Make the array
-        </Button>
+          <Button variant="info" type="submit" block onClick={props.prepareSort}>
+            Make the array
+          </Button>
           {props.readyToSort ? (
             <Button variant="success" block onClick={props.sort}>
               Sort the array
-            </Button>) : <div style={{height: '20px'}}> {' '} </div>
+            </Button>
+          ) : <div style={{height: '20px'}}> {' '} </div>
           }
       </Form>
     </section>
