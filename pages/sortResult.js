@@ -24,6 +24,7 @@ const SortResult = (props) => {
       width: '100%',
       height: '70px',
       padding: '3%',
+      cursor: 'pointer',
       backgroundColor: `${bckColor}`,
       transition: 'background-color 3s',
       color: 'hsl(0, 0%, 20%)',  

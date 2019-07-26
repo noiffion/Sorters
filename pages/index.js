@@ -18,6 +18,7 @@ const Index = () => {
   const [readyToSort, setReadyToSort] = useState(false);
   const [startToSort, setStartToSort] = useState(false);
 
+  const [procNum, setProcNum] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState('');
   const [alertType, setAlertType] = useState('firebrick');
@@ -38,6 +39,15 @@ const Index = () => {
   const [builtin, setBuiltin] = useState({
     name: 'builtin', done: false, time: Infinity, sorted: []}
   );
+
+  useEffect(() => {
+    const pn = navigator.hardwareConcurrency;
+    setProcNum(pn);
+    setAlertMsg(`You have ${pn} processors in your machine.`);
+    setAlertType('forestgreen');
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000);     
+  }, [])
 
   const sizeChange = (event) => {
     const arraySize = event.target.value;
@@ -90,10 +100,9 @@ const Index = () => {
     }
 
     setPercent(0);
-    //console.log('hardwareConcurrency: ', navigator.hardwareConcurrency);
-    setShowAlert(true);
     setAlertMsg('Preparing the array...');
     setAlertType('forestgreen');
+    setShowAlert(true);
     makeArr(size, digits);
     setReadyToSort(true);
     setTimeout(() => setShowAlert(false), 1000);

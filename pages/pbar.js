@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const Filler = (props) => {
   const style = {
     //border: '1px solid green',
-    background: '#00FA9A',
+    background: 'forestgreen',
     height: '30%',
     borderRadius: '30px',
     transition: 'width .2s ease-in',

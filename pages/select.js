@@ -37,7 +37,7 @@ const Select = (props) => {
           <div style={{height: '42px', width: '100%'}}> {' '} </div>
         )}
           <Button variant="info" type="submit" block onClick={props.prepareSort}>
-            Make the array
+            Make an array
           </Button>
           {props.readyToSort ? (
             <Button variant="success" block onClick={props.sort}>
