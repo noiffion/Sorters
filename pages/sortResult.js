@@ -2,6 +2,7 @@ import React, { useState }   from 'react';
 import styled, { keyframes } from 'styled-components';
 import Alert                 from 'react-bootstrap/Alert';
 import PropTypes             from 'prop-types';
+import SortFuncInfo          from './sortFuncInfo';
 
 
 const SortResult = (props) => {
@@ -66,9 +67,10 @@ const SortResult = (props) => {
 
   const sorted = (
     <div style={sortedStyle(props.funcName)}>
-      <div> {funcName} <i className='fas fa-long-arrow-alt-right'></i>
+      <div onClick={props.setShowInfo(true)}> {funcName} <i className='fas fa-long-arrow-alt-right'></i>
            <span> {props.doneIn / 1000} sec </span> 
       </div>
+      <SortFuncInfo setShowInfo={props.setShowInfo} showInfo={props.showInfo} />
     </div>
   );
 
@@ -93,6 +95,8 @@ SortResult.propTypes = {
   ready: PropTypes.bool.isRequired,
   displaySorted: PropTypes.string.isRequired,
   doneIn: PropTypes.number.isRequired,
+  setShowInfo: PropTypes.func.isRequired,
+  showInfo: PropTypes.bool.isRequired,
 }
 
 

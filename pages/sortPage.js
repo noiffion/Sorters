@@ -54,7 +54,9 @@ const SortPage = (props) => {
          funcName={funcName}
          ready={ready}
          displaySorted={displaySorted}
-         doneIn={doneIn} 
+         doneIn={doneIn}
+         setShowInfo={props.setShowInfo}
+         showInfo={props.showInfo}
         />
       </div>
     )
@@ -86,6 +88,8 @@ SortPage.propTypes = {
   builtin: PropTypes.object.isRequired,
   setStartToSort: PropTypes.func.isRequired,
   setReadyToSort: PropTypes.func.isRequired,
+  setShowInfo: PropTypes.func.isRequired,
+  showInfo: PropTypes.bool.isRequired,
   restart: PropTypes.func.isRequired,
 }
 

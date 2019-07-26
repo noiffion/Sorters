@@ -18,6 +18,8 @@ const Index = () => {
   const [readyToSort, setReadyToSort] = useState(false);
   const [startToSort, setStartToSort] = useState(false);
 
+  const [showInfo, setShowInfo] = useState(false);
+
   const [procNum, setProcNum] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState('');
@@ -40,6 +42,7 @@ const Index = () => {
     name: 'builtin', done: false, time: Infinity, sorted: []}
   );
 
+
   useEffect(() => {
     const pn = navigator.hardwareConcurrency;
     setProcNum(pn);
@@ -48,6 +51,7 @@ const Index = () => {
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 3000);     
   }, [])
+
 
   const sizeChange = (event) => {
     const arraySize = event.target.value;
@@ -128,6 +132,8 @@ const Index = () => {
     setReadyToSort(false);
     setStartToSort(false);
 
+    setShowInfo(false);
+
     setShowAlert(false);
     setAlertMsg('');
     setAlertType('firebrick');
@@ -192,6 +198,8 @@ const Index = () => {
           builtin={builtin}
           setStartToSort={setStartToSort}
           setReadyToSort={setReadyToSort}
+          showInfo={showInfo}
+          setShowInfo={setShowInfo}
           restart={restart}    
          />
       )}
