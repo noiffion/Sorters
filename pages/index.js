@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Head                           from 'next/head';
-import Form                           from 'react-bootstrap/Form';
-import Button                         from 'react-bootstrap/Button';
-import Pbar                           from './pbar';
 import Select                         from './select';
-import SortPage                       from './sortPage';
+import Pbar                           from './pbar';
 import InitArr                        from './initArr';
+import SortPage                       from './sortPage';
 import SortFuncInfo                   from './sortFuncInfo';
 import sequentialSorts                from './../sortfuncs/sequentialSorts';
 import parallelSorts                  from './../sortfuncs/parallelSorts';

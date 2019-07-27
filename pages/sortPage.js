@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes                      from 'prop-types'; 
-import Head                           from 'next/head';
-import Button                         from 'react-bootstrap/Button';
-import Pbar                           from './pbar';
-import SortResult                     from './sortResult';
+import React, { useState } from 'react';
+import PropTypes           from 'prop-types'; 
+import Button              from 'react-bootstrap/Button';
+import SortResult          from './sortResult';
 
 
 const SortPage = (props) => {

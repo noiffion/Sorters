@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes           from 'prop-types';
 
 
 const Filler = (props) => {
@@ -47,6 +48,11 @@ const Pbar = (props) => {
       />
     </section>
   );
+}
+
+
+Pbar.propTypes = {
+  percent: PropTypes.number.isRequired,
 }
 
 

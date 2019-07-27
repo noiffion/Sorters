@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import PropTypes           from 'prop-types';
-import Modal               from 'react-bootstrap/Modal';
-import Button              from 'react-bootstrap/Button';
+import React     from 'react';
+import PropTypes from 'prop-types';
+import Modal     from 'react-bootstrap/Modal';
+import Button    from 'react-bootstrap/Button';
 
 
 const SortFuncInfo = (props) => {
@@ -30,8 +30,9 @@ SortFuncInfo.propTypes = {
   setShowInfo: PropTypes.func.isRequired,
   showInfo: PropTypes.bool.isRequired,
   funcName: PropTypes.string.isRequired,
-  sortedArray: PropTypes.string.isRequired,
   algoString: PropTypes.string.isRequired,
+  arrString: PropTypes.string.isRequired,
+  sortedArray: PropTypes.string.isRequired,
 }
 
 
