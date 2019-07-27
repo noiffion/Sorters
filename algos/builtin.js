@@ -1,5 +1,4 @@
-const builtin =`
-function builtin(array) {
+const builtin =`function builtin(array) {
   array.sort((a, b) => a - b);
 }
 `;

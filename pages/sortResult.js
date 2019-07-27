@@ -14,25 +14,14 @@ import count                 from './../algos/count';
 
 const SortResult = (props) => {
 
-  const sortedStyle = (funcName) => {
-    let bckColor;
-    switch (funcName) {
-      case 'bubble': bckColor = 'hsl(197, 71%, 73%)'; break;
-      case 'insertion': bckColor = 'hsl(34, 44%, 75%'; break;
-      case 'selection': bckColor = 'hsl(300, 76%, 90%)'; break;
-      case 'merge': bckColor = 'hsl(0, 0%, 90%)'; break;
-      case 'heap': bckColor = 'hsl(60, 100%, 75%)'; break;
-      case 'quick': bckColor = 'hsl(80, 60%, 75%)'; break;
-      case 'count': bckColor = 'hsl(39, 100%, 70%)'; break;
-      case 'builtin': bckColor = 'hsl(180, 100%, 70%)'; break;
-    }
+  const sortedStyle = (color, funcName) => {
     return {
       //border: '1px solid black',
       borderRadius: '5px',
       width: '100%',
       height: '70px',
       padding: '3%',
-      backgroundColor: `${bckColor}`,
+      backgroundColor: `${color(funcName)}`,
       transition: 'background-color 3s',
       color: 'hsl(0, 0%, 20%)',  
       display: 'flex',
@@ -55,7 +44,7 @@ const SortResult = (props) => {
     animation: ${spinning} infinite 3s linear;
   `;
 
-  const pendingStyle = () => {
+  const pendingStyle = (color, funcName) => {
     return {
       //border: '1px solid purple' 
       borderRadius: '5px',
@@ -65,7 +54,7 @@ const SortResult = (props) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      color: 'hsl(0, 0%, 20%)',
+      color: `${color(funcName)}`, //'hsl(0, 0%, 20%)',
     }
   }
 
@@ -77,16 +66,19 @@ const SortResult = (props) => {
     console.log(algoName,typeof algoName, algoNames, algoIndex);
     return sorts[algoIndex].text; 
   }
+  const gray = () => 'gray';
+  const color = props.colorSwitch || gray;
 
-  const FName = props.funcName ? (
-    `${props.funcName.slice(0,1).toUpperCase()}${props.funcName.slice(1)} `) : ' ';
+  const fName = props.funcName;
+  const FName = fName ? (
+    `${fName.slice(0,1).toUpperCase()}${fName.slice(1)} `) : ' ';
 
   const sorted = (
-    <div style={sortedStyle(props.funcName)}>
+    <div style={sortedStyle(color, fName)}>
       <div>
         <span style={{cursor: 'pointer'}} onClick={() => {
-             const algoString = sortAlgo(props.funcName, sorts);
-             props.algoDisplay(props.funcName, algoString, props.displaySorted);}
+             const algoString = sortAlgo(fName, sorts);
+             props.algoDisplay(fName, algoString, props.displaySorted);}
             }
           >
             {FName}
@@ -98,7 +90,7 @@ const SortResult = (props) => {
   );
 
   const pending = (
-    <div style={pendingStyle()}>
+    <div style={pendingStyle(color, fName)}>
       <div> {FName} </div>
       <span style={{margin: '0 5px'}}> </span>
       <Loading />
@@ -119,6 +111,7 @@ SortResult.propTypes = {
   displaySorted: PropTypes.string.isRequired,
   doneIn: PropTypes.number.isRequired,
   algoDisplay: PropTypes.func.isRequired,
+  colorSwitch: PropTypes.func.isRequired,
 }
 
 

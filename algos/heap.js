@@ -1,5 +1,4 @@
-const heap = `
-function heap(array) {
+const heap = `function heap(array) {
   let heapSize = array.length;
 
   const heapify = (arr, oldI, heapSize) => {

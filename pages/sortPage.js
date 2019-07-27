@@ -56,6 +56,7 @@ const SortPage = (props) => {
          displaySorted={displaySorted}
          doneIn={doneIn}
          algoDisplay={props.algoDisplay}
+         colorSwitch={props.colorSwitch}
         />
       </div>
     )
@@ -88,6 +89,7 @@ SortPage.propTypes = {
   setStartToSort: PropTypes.func.isRequired,
   setReadyToSort: PropTypes.func.isRequired,
   algoDisplay: PropTypes.func.isRequired,
+  colorSwitch: PropTypes.func.isRequired,
   restart: PropTypes.func.isRequired,
 }
 

@@ -1,5 +1,4 @@
-const merge =`
-function merge(array) {
+const merge =`function merge(array) {
 
   const merge = (lArr, rArr) => {
     let sorted = [];

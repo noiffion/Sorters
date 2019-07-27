@@ -1,5 +1,4 @@
-const bubble =`
-function bubble(array) {
+const bubble =`function bubble(array) {
   const len = array.length;
   let swapped = true;
   let i = 1;

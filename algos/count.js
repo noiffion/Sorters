@@ -1,5 +1,4 @@
-const count = `
-function count(array) {
+const count = `function count(array) {
   const length = array.length;
   if (length < 2) return array;
 

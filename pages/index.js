@@ -56,6 +56,21 @@ const Index = () => {
   }, [])
 
 
+  const colorSwitch = (funcName) => {    
+    let color;    
+    switch (funcName) {    
+      case 'bubble': color = 'hsl(197, 71%, 73%)'; break;    
+      case 'insertion': color = 'hsl(34, 44%, 75%'; break;    
+      case 'selection': color = 'hsl(300, 76%, 90%)'; break;    
+      case 'merge': color = 'hsl(0, 0%, 90%)'; break;    
+      case 'heap': color = 'hsl(60, 100%, 75%)'; break;    
+      case 'quick': color = 'hsl(80, 60%, 75%)'; break;    
+      case 'count': color = 'hsl(39, 100%, 70%)'; break;    
+      case 'builtin': color = 'hsl(180, 100%, 70%)'; break;    
+    }    
+    return color;    
+ }    
+
   const sizeChange = (event) => {
     const arraySize = event.target.value;
     const val = Math.floor(Number(arraySize));
@@ -140,7 +155,7 @@ const Index = () => {
         arrString = arrString.join(', ');    
     }
 
-    setFuncName(funcCap);
+    setFuncName(funcName);
     setAlgoString(algoString);
     setArrString(arrString);
     setSortedArray(sortedArray);
@@ -210,6 +225,7 @@ const Index = () => {
            array={array}
            size={Number(size)}
            digits={Number(digits)}
+           readyToSort={readyToSort}
           />
         </>
       ) : (
@@ -226,6 +242,7 @@ const Index = () => {
            setStartToSort={setStartToSort}
            setReadyToSort={setReadyToSort}
            algoDisplay={algoDisplay}
+           colorSwitch={colorSwitch}
            restart={restart}    
           />
           <SortFuncInfo
@@ -235,6 +252,7 @@ const Index = () => {
            algoString={algoString}
            arrString={arrString}
            sortedArray={sortedArray}
+           colorSwitch={colorSwitch}
           />
         </>
       )}

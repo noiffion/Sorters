@@ -1,5 +1,4 @@
-const quick =`
-function quick(array) {
+const quick =`function quick(array) {
 
   const swap = (leftI, rightI) => {
     [array[rightI], array[leftI]] = [array[leftI], array[rightI]];
