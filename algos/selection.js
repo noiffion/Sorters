@@ -1,4 +1,5 @@
-function selectionSort(originalArray) {
+const selection =`
+function selection(originalArray) {
   const array = [...originalArray];
   const len = array.length;
   let minIndex;
@@ -17,6 +18,6 @@ function selectionSort(originalArray) {
       }
       return array;
 }
+`;
 
-
-export default selectionSort;
+export default {name: 'selection', text: selection};

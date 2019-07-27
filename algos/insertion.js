@@ -1,4 +1,5 @@
-function insertionSort(originalArray) {
+const insertion = `
+function insertion(originalArray) {
   const array = [...originalArray];
   const len = array.length;
   let ind;
@@ -14,6 +15,6 @@ function insertionSort(originalArray) {
 
     return array;
 }
+`;
 
-
-export default insertionSort;
+export default {name: 'insertion', text: insertion};

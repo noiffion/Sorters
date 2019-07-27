@@ -1,4 +1,5 @@
-function countingSort(array) {
+const count = `
+function count(array) {
   const length = array.length;
   if (length < 2) return array;
 
@@ -29,6 +30,6 @@ function countingSort(array) {
 
   return array;
 }
+`;
 
-
-export default countingSort;
+export default {name: 'count', text: count};

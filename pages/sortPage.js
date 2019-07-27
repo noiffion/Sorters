@@ -27,10 +27,12 @@ const SortPage = (props) => {
     justifyContent: 'center', 
   }
 
-  const sorts = [
-    props.bubble, props.insertion, props.selection, props.merge, 
-    props.heap, props.quick, props.count, props.builtin
-  ];
+  const sorts = props.bubble ? ( 
+    [
+      props.bubble, props.insertion, props.selection, props.merge, 
+      props.heap, props.quick, props.count, props.builtin
+    ]) : [];
+
   sorts.sort((funcA, funcB) => funcA.time - funcB.time);
 
   const gridItems = sorts.map((sort, i) => {
@@ -55,8 +57,7 @@ const SortPage = (props) => {
          ready={ready}
          displaySorted={displaySorted}
          doneIn={doneIn}
-         setShowInfo={props.setShowInfo}
-         showInfo={props.showInfo}
+         algoDisplay={props.algoDisplay}
         />
       </div>
     )
@@ -88,8 +89,7 @@ SortPage.propTypes = {
   builtin: PropTypes.object.isRequired,
   setStartToSort: PropTypes.func.isRequired,
   setReadyToSort: PropTypes.func.isRequired,
-  setShowInfo: PropTypes.func.isRequired,
-  showInfo: PropTypes.bool.isRequired,
+  algoDisplay: PropTypes.func.isRequired,
   restart: PropTypes.func.isRequired,
 }
 

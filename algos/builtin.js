@@ -1,6 +1,7 @@
-function builtIn(array) {    
-  array.sort((a, b) => a - b);    
+const builtin =`
+function builtin(array) {
+  array.sort((a, b) => a - b);
 }
+`;
 
-
-export default builtIn;
+export default {name: 'builtin', text: builtin};

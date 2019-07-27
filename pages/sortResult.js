@@ -2,7 +2,14 @@ import React, { useState }   from 'react';
 import styled, { keyframes } from 'styled-components';
 import Alert                 from 'react-bootstrap/Alert';
 import PropTypes             from 'prop-types';
-import SortFuncInfo          from './sortFuncInfo';
+import builtin               from './../algos/builtin';    
+import bubble                from './../algos/bubble';    
+import insertion             from './../algos/insertion';    
+import selection             from './../algos/selection';    
+import merge                 from './../algos/merge';    
+import heap                  from './../algos/heap';    
+import quick                 from './../algos/quick';    
+import count                 from './../algos/count';
 
 
 const SortResult = (props) => {
@@ -25,7 +32,6 @@ const SortResult = (props) => {
       width: '100%',
       height: '70px',
       padding: '3%',
-      cursor: 'pointer',
       backgroundColor: `${bckColor}`,
       transition: 'background-color 3s',
       color: 'hsl(0, 0%, 20%)',  
@@ -63,20 +69,37 @@ const SortResult = (props) => {
     }
   }
 
-  const funcName = `${props.funcName.slice(0,1).toUpperCase()}${props.funcName.slice(1)}` 
+  const sorts = [bubble, insertion, selection, merge, heap, quick, count, builtin];
+
+  const sortAlgo = (algoName, sorts) => {
+    const algoNames = sorts.map(sortFunction => sortFunction.name);
+    const algoIndex = algoNames.indexOf(algoName);
+    console.log(algoName,typeof algoName, algoNames, algoIndex);
+    return sorts[algoIndex].text; 
+  }
+
+  const FName = props.funcName ? (
+    `${props.funcName.slice(0,1).toUpperCase()}${props.funcName.slice(1)} `) : ' ';
 
   const sorted = (
     <div style={sortedStyle(props.funcName)}>
-      <div onClick={props.setShowInfo(true)}> {funcName} <i className='fas fa-long-arrow-alt-right'></i>
-           <span> {props.doneIn / 1000} sec </span> 
+      <div>
+        <span style={{cursor: 'pointer'}} onClick={() => {
+             const algoString = sortAlgo(props.funcName, sorts);
+             props.algoDisplay(props.funcName, algoString, props.displaySorted);}
+            }
+          >
+            {FName}
+            <i className='fas fa-long-arrow-alt-right'></i>
+            {` ${props.doneIn / 1000} sec`}
+        </span>
       </div>
-      <SortFuncInfo setShowInfo={props.setShowInfo} showInfo={props.showInfo} />
     </div>
   );
 
   const pending = (
     <div style={pendingStyle()}>
-      <div> {funcName} </div>
+      <div> {FName} </div>
       <span style={{margin: '0 5px'}}> </span>
       <Loading />
     </div>
@@ -95,8 +118,7 @@ SortResult.propTypes = {
   ready: PropTypes.bool.isRequired,
   displaySorted: PropTypes.string.isRequired,
   doneIn: PropTypes.number.isRequired,
-  setShowInfo: PropTypes.func.isRequired,
-  showInfo: PropTypes.bool.isRequired,
+  algoDisplay: PropTypes.func.isRequired,
 }
 
 

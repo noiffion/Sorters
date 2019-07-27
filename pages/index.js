@@ -6,6 +6,7 @@ import Pbar                           from './pbar';
 import Select                         from './select';
 import SortPage                       from './sortPage';
 import InitArr                        from './initArr';
+import SortFuncInfo                   from './sortFuncInfo';
 import sequentialSorts                from './../sortfuncs/sequentialSorts';
 import parallelSorts                  from './../sortfuncs/parallelSorts';
 import arrCreator                     from './../workers/arrCreator';
@@ -17,8 +18,6 @@ const Index = () => {
   const [digits, setDigits] = useState(1);
   const [readyToSort, setReadyToSort] = useState(false);
   const [startToSort, setStartToSort] = useState(false);
-
-  const [showInfo, setShowInfo] = useState(false);
 
   const [procNum, setProcNum] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
@@ -41,6 +40,12 @@ const Index = () => {
   const [builtin, setBuiltin] = useState({
     name: 'builtin', done: false, time: Infinity, sorted: []}
   );
+
+  const [showInfo, setShowInfo] = useState(false);
+  const [arrString, setArrString] = useState('');
+  const [sortedArray, setSortedArray] = useState('');
+  const [funcName, setFuncName] = useState('');
+  const [algoString, setAlgoString] = useState('');
 
 
   useEffect(() => {
@@ -122,7 +127,27 @@ const Index = () => {
     //sequentialSorts(array);
     const arrayCopy = array;    
     setStartToSort(true);
-    setArray([]);
+  }
+
+  const algoDisplay = (funcName, algoString, sortedArray) => {
+    const funcCap = `${funcName.slice(0,1).toUpperCase()}${funcName.slice(1)}`;
+
+    let arrString = [...array];     
+    
+    if (arrString.length > 10) {    
+        const firstFive = arrString.slice(0, 5).join(', ');    
+        const lastFive = arrString.slice(arrString.length - 5).join(', ');    
+        arrString = firstFive + ',' + ' (...) ' + lastFive;    
+    } else {    
+        arrString = arrString.join(', ');    
+    }
+
+    setFuncName(funcCap);
+    setAlgoString(algoString);
+    setArrString(arrString);
+    setSortedArray(sortedArray);
+    console.log(funcName, algoString, sortedArray);
+    setShowInfo(true); 
   }
 
   const restart = () => {
@@ -131,8 +156,6 @@ const Index = () => {
     setDigits(1);
     setReadyToSort(false);
     setStartToSort(false);
-
-    setShowInfo(false);
 
     setShowAlert(false);
     setAlertMsg('');
@@ -148,6 +171,11 @@ const Index = () => {
     setQuick({name: 'quick', done: false, time: Infinity, sorted: []});
     setCount({name: 'count', done: false, time: Infinity, sorted: []});
     setBuiltin({name: 'builtin', done: false, time: Infinity, sorted: []}); 
+
+    setShowInfo(false);
+    setSortedArray('');
+    setFuncName('');
+    setAlgoString('');
   }
 
   return (
@@ -187,21 +215,30 @@ const Index = () => {
           />
         </>
       ) : (
-         <SortPage 
-          bubble={bubble}
-          insertion={insertion}
-          selection={selection}
-          merge={merge}
-          heap={heap}
-          quick={quick}
-          count={count}
-          builtin={builtin}
-          setStartToSort={setStartToSort}
-          setReadyToSort={setReadyToSort}
-          showInfo={showInfo}
-          setShowInfo={setShowInfo}
-          restart={restart}    
-         />
+        <>
+          <SortPage 
+           bubble={bubble}
+           insertion={insertion}
+           selection={selection}
+           merge={merge}
+           heap={heap}
+           quick={quick}
+           count={count}
+           builtin={builtin}
+           setStartToSort={setStartToSort}
+           setReadyToSort={setReadyToSort}
+           algoDisplay={algoDisplay}
+           restart={restart}    
+          />
+          <SortFuncInfo
+           setShowInfo={setShowInfo}
+           showInfo={showInfo}
+           funcName={funcName}
+           algoString={algoString}
+           arrString={arrString}
+           sortedArray={sortedArray}
+          />
+        </>
       )}
       </main>
     </>

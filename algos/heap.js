@@ -1,4 +1,5 @@
-function heapSort(array) {
+const heap = `
+function heap(array) {
   let heapSize = array.length;
 
   const heapify = (arr, oldI, heapSize) => {
@@ -30,6 +31,6 @@ function heapSort(array) {
 
   return array;
 }
+`;
 
-
-export default heapSort;
+export default {name: 'heap', text: heap};

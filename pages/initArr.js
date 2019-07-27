@@ -13,7 +13,7 @@ const InitArr = (props) => {
     return () => window.removeEventListener('resize', handleWidth);
   }, []);
 
-  const arr = props.array;
+  const arr = props.array ? props.array : [];
 
   let displayNumbers = '';
   arr.forEach((number) => {

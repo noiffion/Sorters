@@ -1,4 +1,5 @@
-function mergeSort(array) {
+const merge =`
+function merge(array) {
 
   const merge = (lArr, rArr) => {
     let sorted = [];
@@ -27,10 +28,8 @@ function mergeSort(array) {
  
     return merge(leftSortedArray, rightSortedArray);
   }
-
   return sort(array);
-
 }
+`;
 
-
-export default mergeSort;
+export default {name: 'merge', text: merge};

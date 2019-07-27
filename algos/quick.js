@@ -1,4 +1,5 @@
-function quickSort(array) {
+const quick =`
+function quick(array) {
 
   const swap = (leftI, rightI) => {
     [array[rightI], array[leftI]] = [array[leftI], array[rightI]];
@@ -26,9 +27,8 @@ function quickSort(array) {
       qSort(array, partI + 1, highI);
     }
   }
-
   qSort(array);
 }
+`;
 
-
-export default quickSort;
+export default {name: 'quick', text: quick};
