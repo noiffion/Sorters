@@ -1,6 +1,5 @@
 import React                 from 'react';
 import styled, { keyframes } from 'styled-components';
-import Alert                 from 'react-bootstrap/Alert';
 import PropTypes             from 'prop-types';
 import builtin               from './../algos/builtin';    
 import bubble                from './../algos/bubble';    

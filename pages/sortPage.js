@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes           from 'prop-types'; 
-import Button              from 'react-bootstrap/Button';
-import SortResult          from './sortResult';
+import React      from 'react';
+import PropTypes  from 'prop-types'; 
+import Button     from 'react-bootstrap/Button';
+import SortResult from './sortResult';
 
 
 const SortPage = (props) => {
-  const [width, setWidth] = useState(1500);
     
   const gridStyle = {
     //border: '1px solid purple',

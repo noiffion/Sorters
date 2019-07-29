@@ -12,13 +12,11 @@ const SortFuncInfo = (props) => {
     }
   }
 
-  const algoStyle = (color, funcName) => {
-    return {
-      textAlign: 'center',
-      marginTop: '20px',
-      marginBottom: '10px',
-      paddingBottom: 0,
-    }
+  const algoStyle = {
+    textAlign: 'center',
+    marginTop: '20px',
+    marginBottom: '10px',
+    paddingBottom: 0,
   }
 
   const fName = props.funcName;
@@ -39,7 +37,7 @@ const SortFuncInfo = (props) => {
          <p>The original array: <span style={{color: 'gray'}}> [{props.arrString}]</span></p>
          <p>The sorted array: <span style={{color: 'gray'}}> [{props.sortedArray}]</span></p>
        </div>
-       <h5 style={algoStyle(color, fName)}> The sorting algorithm: </h5>
+       <h5 style={algoStyle}> The sorting algorithm: </h5>
        <p style={{whiteSpace: 'pre-wrap', color: 'gray'}}>{props.algoString}</p>
      </Modal.Body>
       <Modal.Footer>

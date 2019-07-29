@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PropTypes           from 'prop-types';
+import React     from 'react';
+import PropTypes from 'prop-types';
 
 
 const Filler = (props) => {
@@ -16,6 +16,11 @@ const Filler = (props) => {
 }
 
 
+Filler.propTypes = {
+  percent: PropTypes.number.isRequired,
+}
+
+
 const Bar = (props) => {
   const style = {
     //border: '1px solid blue',
@@ -29,6 +34,11 @@ const Bar = (props) => {
       <Filler percent={props.percent} />
     </div>
   )
+}
+
+
+Bar.propTypes = {
+  percent: PropTypes.number.isRequired,
 }
 
 

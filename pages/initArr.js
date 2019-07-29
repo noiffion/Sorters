@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes                      from 'prop-types';
+import React     from 'react';
+import PropTypes from 'prop-types';
 
 
 const InitArr = (props) => {
-  const [boxWidth, setBoxWidth] = useState(1200);   
-
-  useEffect(() => {
-    const arr = document.getElementById('numbers');
-    setBoxWidth(arr.offsetWidth);
-  },[props.readyToSort])
 
   const arr = props.array ? props.array : [];
 
@@ -40,6 +34,7 @@ InitArr.propTypes = {
   size: PropTypes.number.isRequired,
   digits: PropTypes.number.isRequired,
   array: PropTypes.array.isRequired,
+  readyToSort: PropTypes.bool.isRequired,
 };
 
 

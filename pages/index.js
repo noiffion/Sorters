@@ -5,7 +5,6 @@ import Pbar                           from './pbar';
 import InitArr                        from './initArr';
 import SortPage                       from './sortPage';
 import SortFuncInfo                   from './sortFuncInfo';
-import sequentialSorts                from './../sortfuncs/sequentialSorts';
 import parallelSorts                  from './../sortfuncs/parallelSorts';
 import arrCreator                     from './../workers/arrCreator';
  
@@ -17,7 +16,6 @@ const Index = () => {
   const [readyToSort, setReadyToSort] = useState(false);
   const [startToSort, setStartToSort] = useState(false);
 
-  const [procNum, setProcNum] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState('');
   const [alertType, setAlertType] = useState('firebrick');
@@ -48,7 +46,6 @@ const Index = () => {
 
   useEffect(() => {
     const pn = navigator.hardwareConcurrency;
-    setProcNum(pn);
     setAlertMsg(`You have ${pn} processors in your machine.`);
     setAlertType('forestgreen');
     setShowAlert(true);
@@ -112,7 +109,7 @@ const Index = () => {
     }
   }
 
-  const prepareSort = (event) => {
+  const prepareSort = () => {
     setShowAlert(false);
     if (!correct) {
       setAlertMsg('Please, submit correct values!');
@@ -137,14 +134,10 @@ const Index = () => {
       setHeap, setQuick, setCount, setBuiltin
     ];
     parallelSorts(array, sorts, setSorts);
-    //sequentialSorts(array);
-    const arrayCopy = array;    
     setStartToSort(true);
   }
 
   const algoDisplay = (funcName, algoString, sortedArray) => {
-    const funcCap = `${funcName.slice(0,1).toUpperCase()}${funcName.slice(1)}`;
-
     let arrString = [...array];     
     
     if (arrString.length > 10) {    
