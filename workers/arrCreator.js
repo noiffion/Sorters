@@ -10,7 +10,7 @@ export default () => {
     let currentPercent = 1; 
     const arr = new Array(Number(size)).fill(1);
     const finalArr = arr.map((element, i) => {                                   
-      const randNumb = Math.ceil(Math.random() * Math.pow(10, digits));
+      const randNumb = Math.floor(Math.random() * Math.pow(10, digits));
       if (size > 10000) {
           if (i+1 > (currentPercent / 10) * tenth) {
              (currentPercent + 10 >= 100) ? currentPercent = 100 : currentPercent += 10;

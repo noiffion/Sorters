@@ -46,9 +46,11 @@ const Index = () => {
 
   useEffect(() => {
     const pn = navigator.hardwareConcurrency;
-    setAlertMsg(`You have ${pn} processors in your machine.`);
-    setAlertType('forestgreen');
-    setShowAlert(true);
+    setTimeout(() => {
+      setAlertMsg(`You have ${pn} processors in your machine.`);
+      setAlertType('forestgreen');
+      setShowAlert(true);
+    }, 600);
     setTimeout(() => setShowAlert(false), 3000);     
   }, [])
 
@@ -188,64 +190,68 @@ const Index = () => {
     <>
       <Head>
         <link
-         rel="stylesheet" crossOrigin="anonymous"
-         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          rel="stylesheet" crossOrigin="anonymous"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         />
         <link 
-         rel="stylesheet" crossOrigin="anonymous"
-         href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
-         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
+          rel="stylesheet" crossOrigin="anonymous"
+          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" 
+        /> 
       </Head>
       <main style={{width: '100%'}}>
       {!startToSort ? (
         <>
           <Select
-           digits={String(digits)}
-           size={String(size)}
-           sizeChange={sizeChange}
-           digitChange={digitChange}
-           prepareSort={prepareSort}
-           readyToSort={readyToSort}
-           sort={sort}
-           showAlert={showAlert}
-           alertMsg={alertMsg}
-           alertType={alertType}
+            digits={String(digits)}
+            size={String(size)}
+            sizeChange={sizeChange}
+            digitChange={digitChange}
+            prepareSort={prepareSort}
+            readyToSort={readyToSort}
+            sort={sort}
+            showAlert={showAlert}
+            alertMsg={alertMsg}
+            alertType={alertType}
           />
           <Pbar percent={percent} />
           <InitArr
-           array={array}
-           size={Number(size)}
-           digits={Number(digits)}
-           readyToSort={readyToSort}
+            array={array}
+            size={Number(size)}
+            digits={Number(digits)}
+            readyToSort={readyToSort}
           />
         </>
       ) : (
         <>
           <SortPage 
-           bubble={bubble}
-           insertion={insertion}
-           selection={selection}
-           merge={merge}
-           heap={heap}
-           quick={quick}
-           count={count}
-           builtin={builtin}
-           setStartToSort={setStartToSort}
-           setReadyToSort={setReadyToSort}
-           algoDisplay={algoDisplay}
-           colorSwitch={colorSwitch}
-           restart={restart}    
+            bubble={bubble}
+            insertion={insertion}
+            selection={selection}
+            merge={merge}
+            heap={heap}
+            quick={quick}
+            count={count}
+            builtin={builtin}
+            setStartToSort={setStartToSort}
+            setReadyToSort={setReadyToSort}
+            algoDisplay={algoDisplay}
+            colorSwitch={colorSwitch}
+            restart={restart}    
           />
           <SortFuncInfo
-           setShowInfo={setShowInfo}
-           showInfo={showInfo}
-           funcName={funcName}
-           algoString={algoString}
-           arrString={arrString}
-           sortedArray={sortedArray}
-           colorSwitch={colorSwitch}
+            setShowInfo={setShowInfo}
+            showInfo={showInfo}
+            funcName={funcName}
+            algoString={algoString}
+            arrString={arrString}
+            sortedArray={sortedArray}
+            colorSwitch={colorSwitch}
           />
         </>
       )}

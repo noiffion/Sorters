@@ -49,13 +49,13 @@ const SortPage = (props) => {
     return (
       <div id="sortResult" key={sort + '_' + i}>
         <SortResult
-         key={sort + '_' + i}
-         funcName={funcName}
-         ready={ready}
-         displaySorted={displaySorted}
-         doneIn={doneIn}
-         algoDisplay={props.algoDisplay}
-         colorSwitch={props.colorSwitch}
+          key={sort + '_' + i}
+          funcName={funcName}
+          ready={ready}
+          displaySorted={displaySorted}
+          doneIn={doneIn}
+          algoDisplay={props.algoDisplay}
+          colorSwitch={props.colorSwitch}
         />
       </div>
     )
