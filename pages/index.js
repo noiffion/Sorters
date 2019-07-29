@@ -73,7 +73,7 @@ const Index = () => {
   const sizeChange = (event) => {
     const arraySize = event.target.value;
     const val = Math.floor(Number(arraySize));
-    if (isNaN(val) || val < 0 || val > 100000) {
+    if (isNaN(val) || val < 0 || val > 10000000) {
       setCorrect(false);
       if (!showAlert || alertMsg.slice(0, 6) === 'Please') {
         setAlertMsg('Incorrect value!')
@@ -218,6 +218,7 @@ const Index = () => {
             showAlert={showAlert}
             alertMsg={alertMsg}
             alertType={alertType}
+            restart={restart}    
           />
           <Pbar percent={percent} />
           <InitArr

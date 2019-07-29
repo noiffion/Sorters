@@ -25,7 +25,6 @@ const InitArr = (props) => {
 
   const boxWidth = displayWidth - (displayWidth*0.16);
   const perRow = Math.floor((boxWidth - props.digits*10) / (props.digits*10 + 3*10));
-  console.log(perRow);
                 
   const numbers = props.array ? props.array : [];
   const rows = [];
@@ -53,12 +52,11 @@ const InitArr = (props) => {
     }
   });
 
-  console.log(rows);
 
   const wrapperStyle = () => {
     const height = props.readyToSort > 0 ? '90vh' : '230px';
     return {
-      border: '1px solid #000000',
+      //border: '1px solid #000000',
       margin: '0 0 4vh 0',
       padding: '0',
       width: '100%',

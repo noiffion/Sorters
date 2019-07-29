@@ -1,8 +1,9 @@
-import React     from 'react';
-import Form      from 'react-bootstrap/Form';
-import Button    from 'react-bootstrap/Button';
-import PropTypes from 'prop-types';
-import AlertMsg  from './alertMsg';
+import React       from 'react';
+import Form        from 'react-bootstrap/Form';
+import Button      from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import PropTypes   from 'prop-types';
+import AlertMsg    from './alertMsg';
 
 
 const Select = (props) => {
@@ -16,16 +17,16 @@ const Select = (props) => {
   return (
     <section style={{width: '100vw', display: 'flex', justifyContent: 'center'}}>
       <Form onSubmit={(event) => event.preventDefault()} style={{maxWidth: '40%', marginTop: '30px'}}>
-       <Form.Text sm={2}> Please, choose a number between 1 and 100,000! </Form.Text>
+       <Form.Text sm={2}> Please, choose a number between 1 and 10,000,000! </Form.Text>
         <Form.Group id="arraySize" type="text">
           <Form.Control type="text" size="sm" placeholder="" value={props.size}
-            onChange={props.sizeChange}
+            onChange={props.sizeChange} disabled={props.readyToSort}
           />
         </Form.Group>   
        <Form.Text sm={2}> You should choose how many digits should be in the numbers! </Form.Text>
         <Form.Group id="digits">
           <Form.Control as="select" value={props.digits}
-            onChange={props.digitChange} size="sm"
+            onChange={props.digitChange} size="sm" disabled={props.readyToSort}
           >
           {optionMaker(1, 10, 'digit')}
           </Form.Control>
@@ -39,9 +40,14 @@ const Select = (props) => {
             Make an array
           </Button>
           {props.readyToSort ? (
-            <Button variant="success" block onClick={props.sort}>
-              Sort the array
-            </Button>
+            <ButtonGroup style={{width: '100%', marginTop: '10px'}}>
+              <Button variant="success" onClick={props.sort}>
+                Sort
+              </Button>
+              <Button variant="dark" onClick={props.restart}>
+                Clear 
+              </Button>
+            </ButtonGroup>
           ) : <div style={{height: '20px'}}> {' '} </div>
           }
       </Form>
@@ -61,6 +67,7 @@ Select.propTypes = {
   showAlert: PropTypes.bool.isRequired,
   alertMsg: PropTypes.string.isRequired,
   alertType: PropTypes.string.isRequired,
+  restart: PropTypes.func.isRequired,
 };
 
 
