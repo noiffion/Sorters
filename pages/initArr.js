@@ -57,7 +57,7 @@ const InitArr = (props) => {
   const wrapperStyle = () => {
     const height = props.readyToSort > 0 ? '90vh' : '230px';
     return {
-      border: '1px solid #000000',
+      //border: '1px solid #000000',
       margin: '0 0 4vh 0',
       padding: '0',
       width: '100%',
