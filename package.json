@@ -6,12 +6,13 @@
   "author": "David Kerekes <davkedav@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "eslint": "eslint './**/*.js'"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "next": "^9.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
