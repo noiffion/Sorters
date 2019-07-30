@@ -23,8 +23,9 @@ const InitArr = (props) => {
     return () => { window.removeEventListener('resize', setCoords)};
   }, [])
 
-  const boxWidth = displayWidth - (displayWidth*0.16);
-  const perRow = Math.floor((boxWidth - props.digits*10) / (props.digits*10 + 3*10));
+  const maxWidth = displayWidth - (displayWidth*0.16);
+  const perRow = Math.ceil((maxWidth - props.digits*10) / (props.digits*10 + 3*10));
+  const boxWidth = maxWidth - (maxWidth - (perRow * (props.digits+3) * 10));
                 
   const numbers = props.array ? props.array : [];
   const rows = [];
@@ -56,7 +57,7 @@ const InitArr = (props) => {
   const wrapperStyle = () => {
     const height = props.readyToSort > 0 ? '90vh' : '230px';
     return {
-      //border: '1px solid #000000',
+      border: '1px solid #000000',
       margin: '0 0 4vh 0',
       padding: '0',
       width: '100%',
@@ -69,8 +70,7 @@ const InitArr = (props) => {
 
   const boxStyle = {
     border: '1px solid #1E90FF',
-    margin: '0 8vw',
-    padding: '0 10px',
+    padding: '0 0 0 5px',
     height: '100%',
     fontFamily: `'Roboto Mono', monospace`,
   };
@@ -85,7 +85,7 @@ const InitArr = (props) => {
     <section id="displayArray" style={wrapperStyle()}>
      {numbers.length > 0 ? (
        <VirtualList
-         width={displayWidth} 
+         width={boxWidth} 
          height={displayHeight}
          itemCount={rows.length}
          itemSize={20}
