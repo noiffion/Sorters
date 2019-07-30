@@ -7,6 +7,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const port = (process.env.PORT == null || process.env.PORT == "") ? 3030 : process.env.PORT;
+
 app
   .prepare()
   .then(() => {
@@ -16,9 +18,9 @@ app
       return handle(req, res);
     });
 
-    server.listen(3030, err => {
+    server.listen(port, err => {
       if (err) throw err;
-      console.log('> Ready on http://localhost:3030');
+      console.log(`> Ready on http://localhost:${port}`);
     });
   })
   .catch(ex => {
