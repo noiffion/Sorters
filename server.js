@@ -7,7 +7,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const port = (process.env.PORT == null || process.env.PORT == "") ? 3030 : process.env.PORT;
+const pt = process.env.PORT;
+const port = (pt == null || pt == "") ? 3030 : pt;
 
 app
   .prepare()

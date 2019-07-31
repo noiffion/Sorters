@@ -9,6 +9,7 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
+    "test": "jest",
     "eslint": "eslint './**/*.js'"
   },
   "dependencies": {
@@ -22,7 +23,13 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
     "eslint": "^6.1.0",
-    "eslint-plugin-react": "^7.14.3"
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.8.0",
+    "react-test-renderer": "^16.8.6"
   }
 }

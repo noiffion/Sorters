@@ -1,5 +1,4 @@
-const insertion = `function insertion(originalArray) {
-  const array = [...originalArray];
+const insertion = `function insertion(array) {
   const len = array.length;
   let ind;
 

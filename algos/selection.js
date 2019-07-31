@@ -1,5 +1,4 @@
-const selection =`function selection(originalArray) {
-  const array = [...originalArray];
+const selection =`function selection(array) {
   const len = array.length;
   let minIndex;
 
