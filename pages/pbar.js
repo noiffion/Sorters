@@ -45,10 +45,10 @@ Bar.propTypes = {
 const Pbar = (props) => {
   const style = {
     //border: '1px solid black',
-    width: '100%', 
+    width: '100%',
     margin: '20px 0 0 0',
-    display: 'flex', 
-    justifyContent: 'center', 
+    display: 'flex',
+    justifyContent: 'center',
   }
 
   return (

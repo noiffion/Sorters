@@ -1,13 +1,13 @@
 import React                 from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes             from 'prop-types';
-import builtin               from './../algos/builtin';    
-import bubble                from './../algos/bubble';    
-import insertion             from './../algos/insertion';    
-import selection             from './../algos/selection';    
-import merge                 from './../algos/merge';    
-import heap                  from './../algos/heap';    
-import quick                 from './../algos/quick';    
+import builtin               from './../algos/builtin';
+import bubble                from './../algos/bubble';
+import insertion             from './../algos/insertion';
+import selection             from './../algos/selection';
+import merge                 from './../algos/merge';
+import heap                  from './../algos/heap';
+import quick                 from './../algos/quick';
 import count                 from './../algos/count';
 
 
@@ -22,7 +22,7 @@ const SortResult = (props) => {
       padding: '3%',
       backgroundColor: `${color(funcName)}`,
       transition: 'background-color 3s',
-      color: 'hsl(0, 0%, 20%)',  
+      color: 'hsl(0, 0%, 20%)',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -30,8 +30,8 @@ const SortResult = (props) => {
   }
 
   const spinning = keyframes`
-    from { transform: rotate(0deg); }    
-    to { transform: rotate(360deg); }      
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   `;
 
   const Loading = styled.div`
@@ -45,7 +45,7 @@ const SortResult = (props) => {
 
   const pendingStyle = (color, funcName) => {
     return {
-      //border: '1px solid purple' 
+      //border: '1px solid purple'
       borderRadius: '5px',
       backgroundColor: 'hsl(0, 0%, 96%)',
       width: '100%',
@@ -63,7 +63,7 @@ const SortResult = (props) => {
     const algoNames = sorts.map(sortFunction => sortFunction.name);
     const algoIndex = algoNames.indexOf(algoName);
     console.log(algoName,typeof algoName, algoNames, algoIndex);
-    return sorts[algoIndex].text; 
+    return sorts[algoIndex].text;
   }
   const gray = () => 'gray';
   const color = props.colorSwitch || gray;

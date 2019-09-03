@@ -8,7 +8,7 @@ import AlertMsg    from './alertMsg';
 
 const Select = (props) => {
 
-  const optionMaker = (current, till, unique, options=[]) => { 
+  const optionMaker = (current, till, unique, options=[]) => {
     if (current > till) return options;
     options.push(<option key={current+unique}> {current} </option>);
     return optionMaker(current+1, till, unique, options);
@@ -22,19 +22,19 @@ const Select = (props) => {
           <Form.Control type="text" size="sm" placeholder="" value={props.size}
             onChange={props.sizeChange} disabled={props.readyToSort}
           />
-        </Form.Group>   
+        </Form.Group>
        <Form.Text sm={2}> You should choose how many digits should be in the numbers! </Form.Text>
-        <Form.Group id="digits">
+        <Form.Group id="digits" style={{marginBottom: '0' }}>
           <Form.Control as="select" value={props.digits}
             onChange={props.digitChange} size="sm" disabled={props.readyToSort}
           >
           {optionMaker(1, 10, 'digit')}
           </Form.Control>
         </Form.Group>
-        {props.showAlert ? ( 
+        {props.showAlert ? (
           <AlertMsg showAlert={props.showAlert} message={props.alertMsg} type={props.alertType}/>
-        ) : ( 
-          <div style={{height: '42px', width: '100%'}}> {' '} </div>
+        ) : (
+          <div style={{height: '70px', width: '100%'}}> {' '} </div>
         )}
           <Button variant="info" type="submit" block onClick={props.prepareSort}>
             Make an array
@@ -45,7 +45,7 @@ const Select = (props) => {
                 Sort
               </Button>
               <Button variant="dark" onClick={props.restart}>
-                Clear 
+                Clear
               </Button>
             </ButtonGroup>
           ) : <div style={{height: '20px'}}> {' '} </div>

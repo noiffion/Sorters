@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes                      from 'prop-types';
-import VirtualList                    from 'react-tiny-virtual-list'; 
+import VirtualList                    from 'react-tiny-virtual-list';
 
 
 const InitArr = (props) => {
-  const [displayWidth, setDisplayWidth] = useState(1200); 
+  const [displayWidth, setDisplayWidth] = useState(1200);
   const [displayHeight, setDisplayHeight] = useState(600);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const InitArr = (props) => {
   const maxWidth = displayWidth - (displayWidth*0.16);
   const perRow = Math.ceil((maxWidth - props.digits*10) / (props.digits*10 + 3*10));
   const boxWidth = maxWidth - (maxWidth - (perRow * (props.digits+3) * 10));
-                
+
   const numbers = props.array ? props.array : [];
   const rows = [];
   let row = [];
@@ -74,22 +74,22 @@ const InitArr = (props) => {
     height: '100%',
     fontFamily: `'Roboto Mono', monospace`,
   };
-  
+
   const imgStyle = {
     border: '1px solid #1E90FF',
     width: '200px',
-    height: '200px',  
+    height: '200px',
   }
 
   return (
     <section id="displayArray" style={wrapperStyle()}>
      {numbers.length > 0 ? (
        <VirtualList
-         width={boxWidth} 
+         width={boxWidth}
          height={displayHeight}
          itemCount={rows.length}
          itemSize={20}
-         style={boxStyle} 
+         style={boxStyle}
          renderItem={({index, style}) => (
            <div key={index} style={style}>
              {rows[index]}

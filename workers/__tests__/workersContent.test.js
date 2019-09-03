@@ -1,4 +1,6 @@
-import { 
+/* eslint-disable */
+
+import {
   arrCreator,
   bubble,
   builtin,
@@ -64,7 +66,7 @@ describe('Sorting algorithms', () => {
       return (i > 0) ? number >= arr[i-1] : true;
     })
     expect(sorted).toBe(true);
-  }); 
+  });
 
   test('Bubble', () => {
     bubble(inputArr);

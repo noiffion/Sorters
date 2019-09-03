@@ -5,15 +5,15 @@ export default () => {
 
 
     function quick(array) {
-    
+
       const swap = (leftI, rightI) => {
         [array[rightI], array[leftI]] = [array[leftI], array[rightI]];
       }
-    
+
       const partition = (lowI, highI) => {
         const lastElem = array[highI];
         let partI = lowI;
-    
+
         for (let i = lowI; i < highI; i++) {
           if (array[i] <= lastElem) {
             if (i != partI) swap(i, partI);
@@ -21,10 +21,10 @@ export default () => {
           }
         }
         swap(partI, highI);
-    
+
         return partI;
       };
-    
+
       const qSort = (array, lowI=0, highI=(array.length-1)) => {
         if (lowI < highI) {
           const partI = partition(lowI, highI);

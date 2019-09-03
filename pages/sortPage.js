@@ -1,11 +1,11 @@
 import React      from 'react';
-import PropTypes  from 'prop-types'; 
+import PropTypes  from 'prop-types';
 import Button     from 'react-bootstrap/Button';
 import SortResult from './sortResult';
 
 
 const SortPage = (props) => {
-    
+
   const gridStyle = {
     //border: '1px solid purple',
     width: '100%',
@@ -17,16 +17,16 @@ const SortPage = (props) => {
   }
 
   const gridWrapperStyle = {
-    width: '100%', 
-    margin: '1% 0 0 0', 
+    width: '100%',
+    margin: '1% 0 0 0',
     padding: '0',
-    display: 'flex', 
-    justifyContent: 'center', 
+    display: 'flex',
+    justifyContent: 'center',
   }
 
-  const sorts = props.bubble ? ( 
+  const sorts = props.bubble ? (
     [
-      props.bubble, props.insertion, props.selection, props.merge, 
+      props.bubble, props.insertion, props.selection, props.merge,
       props.heap, props.quick, props.count, props.builtin
     ]) : [];
 

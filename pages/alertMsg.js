@@ -10,9 +10,19 @@ const AlertMsg = (props) => {
     padding: '0',
     color: props.type,
   }
-        
+
+  const alertStyle = {
+    padding: '0',
+    textAlign: 'center',
+    height: '70px',
+    margin: '0',
+    display:'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
   return (
-    <Alert show={props.showAlert} style={{padding: '0', textAlign: 'center'}}>
+    <Alert show={props.showAlert} style={alertStyle}>
       <p style={msgStyle}> {props.message} </p>
     </Alert>
   )

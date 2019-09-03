@@ -7,9 +7,9 @@ export default () => {
     const digits = event.data[1];
     const tenth = Math.floor(size / 10);
     const quarter = Math.floor(size / 4);
-    let currentPercent = 1; 
+    let currentPercent = 1;
     const arr = new Array(Number(size)).fill(1);
-    const finalArr = arr.map((element, i) => {                                   
+    const finalArr = arr.map((element, i) => {
       const randNumb = Math.floor(Math.random() * Math.pow(10, digits));
       if (size > 10000) {
           if (i+1 > (currentPercent / 10) * tenth) {
@@ -26,7 +26,7 @@ export default () => {
           }
       }
       return element * randNumb;
-    }) 
+    })
 
     postMessage(finalArr);
   });

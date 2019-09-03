@@ -1,9 +1,9 @@
 export function arrCreator(size, digits, postMessage) {
   const tenth = Math.floor(size / 10);
   const quarter = Math.floor(size / 4);
-  let currentPercent = 1; 
+  let currentPercent = 1;
   const arr = new Array(Number(size)).fill(1);
-  const finalArr = arr.map((element, i) => {                                   
+  const finalArr = arr.map((element, i) => {
     const randNumb = Math.floor(Math.random() * Math.pow(10, digits));
     if (size > 10000) {
         if (i+1 > (currentPercent / 10) * tenth) {
@@ -20,7 +20,7 @@ export function arrCreator(size, digits, postMessage) {
         }
     }
     return element * randNumb;
-  }) 
+  })
 
   postMessage(finalArr);
 }
@@ -56,23 +56,23 @@ export function builtin(array) {
 export function count(array) {
   const length = array.length;
   if (length < 2) return array;
-  
+
   const findMax = (array, length) => {
     let maxValue = array[0];
-  
+
     for (let i = 1; i < length; i++) {
       if (array[i] > maxValue) maxValue = array[i];
     }
     return maxValue;
   }
-  
+
   const maxValue = findMax(array, length);
   const counts = new Array(maxValue + 1);
   for (let i = 0; i < length; i++) {
     if (!counts[array[i]]) counts[array[i]] = 0;
     counts[array[i]]++
   }
-  
+
   const cLength = counts.length;
   let sortedIndex = 0;
   for (let i = 0; i < cLength; i++) {
@@ -88,28 +88,28 @@ export function count(array) {
 
 export function heap(array) {
   let heapSize = array.length;
-  
+
   const heapify = (arr, oldI, heapSize) => {
     let newI = oldI;
     const leftI = (2 * oldI) + 1;
     const rightI = (2 * oldI) + 2;
-  
+
     if (leftI < heapSize && (arr[leftI] > arr[newI])) newI = leftI;
     if (rightI < heapSize && (arr[rightI] > arr[newI])) newI = rightI;
-  
+
     if (newI !== oldI) {
       [arr[newI], arr[oldI]] = [arr[oldI], arr[newI]];
       heapify(arr, newI, heapSize);
     }
   }
-  
+
   const buildMaxHeap = (arr) => {
     for (let i = Math.floor(heapSize / 2); i >= 0; i--) {
       heapify(arr, i, heapSize);
     }
   }
   buildMaxHeap(array);
-  
+
   while (heapSize > 1) {
     heapSize--;
     [array[heapSize], array[0]] = [array[0], array[heapSize]];
@@ -122,10 +122,10 @@ export function heap(array) {
 export function insertion(array) {
   const len = array.length;
   let ind;
-  
+
   for (let i = 0; i < len; i++) {
     ind = i;
-  
+
     while ((ind > 0) && (array[ind-1] > array[ind])) {
       [array[ind], array[ind-1]] = [array[ind-1], array[ind]];
       ind--;
@@ -137,29 +137,29 @@ export function insertion(array) {
 export function merge(array) {
   const merge = (lArr, rArr) => {
     let sorted = [];
-  
+
     while (lArr.length && rArr.length) {
       lArr[0] < rArr[0] ? sorted.push(lArr.shift()) : sorted.push(rArr.shift());
     }
-  
+
     if (lArr.length) sorted = sorted.concat(lArr);
     if (rArr.length) sorted = sorted.concat(rArr);
-  
+
     return sorted;
   }
-  
+
   const sort = (array) => {
     const arrSize = array.length;
-  
+
     if (arrSize <= 1) return array;
-  
+
     const middleIndex = Math.floor(arrSize / 2);
     const leftArray = array.slice(0, middleIndex);
     const rightArray = array.slice(middleIndex, arrSize);
-  
+
     const leftSortedArray = sort(leftArray);
     const rightSortedArray = sort(rightArray);
-  
+
     return merge(leftSortedArray, rightSortedArray);
   }
   return sort(array);
@@ -208,7 +208,7 @@ export function selection(array) {
             minIndex = j;
           }
         }
-  
+
         if (minIndex !== i) {
           [array[i], array[minIndex]] = [array[minIndex], array[i]];
         }

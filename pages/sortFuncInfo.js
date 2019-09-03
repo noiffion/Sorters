@@ -20,7 +20,7 @@ const SortFuncInfo = (props) => {
   }
 
   const fName = props.funcName;
-  const FName = fName ? (    
+  const FName = fName ? (
     `${fName.slice(0,1).toUpperCase()}${fName.slice(1)} `) : ' ';
   const gray = () => 'gray';
   const color = props.colorSwitch || gray;
@@ -28,7 +28,7 @@ const SortFuncInfo = (props) => {
   return (
     <Modal show={props.showInfo} onHide={() => props.setShowInfo(false)}>
       <Modal.Header closeButton style={titleStyle(color, fName)}>
-        <Modal.Title> 
+        <Modal.Title>
           {FName} sort
         </Modal.Title>
       </Modal.Header>

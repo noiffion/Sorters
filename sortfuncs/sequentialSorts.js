@@ -9,7 +9,7 @@ import count     from './../algos/count';
 
 
 const sequentialSorts = (array) => {
-  
+
   const sortFuncs = [bubble, insertion, selection, merge, heap, quick, count, builtin];
 
   const start = new Date();
