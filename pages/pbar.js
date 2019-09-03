@@ -53,9 +53,7 @@ const Pbar = (props) => {
 
   return (
     <section style={style}>
-      <Bar
-        percent={props.percent}
-      />
+      <Bar percent={props.percent} />
     </section>
   );
 }

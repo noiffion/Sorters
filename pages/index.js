@@ -205,6 +205,16 @@ const Index = () => {
         />
       </Head>
       <main style={{width: '100%'}}>
+      <span 
+        id="letterWidth" 
+        style={{
+          fontFamily: `'Roboto Mono', monospace`,
+          color: '#FFFFFF',
+          visibility: 'hidden',
+        }}
+      >
+        0123456789
+      </span>
       {!startToSort ? (
         <>
           <Select

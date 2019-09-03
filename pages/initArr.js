@@ -6,11 +6,16 @@ import VirtualList                    from 'react-tiny-virtual-list';
 const InitArr = (props) => {
   const [displayWidth, setDisplayWidth] = useState(1200);
   const [displayHeight, setDisplayHeight] = useState(600);
+  const [letterWidth, setLetterWidth] = useState(10);
 
   useEffect(() => {
     const arr = document.getElementById('displayArray');
+    const letterBox = document.getElementById('letterWidth');
+    // console.log('letterBox.offsetWidth: ', letterBox.offsetWidth);
+    // console.log('box width, height: ', arr.offsetWidth, arr.offsetHeight);
     setDisplayWidth(arr.offsetWidth);
     setDisplayHeight(arr.offsetHeight);
+    setLetterWidth(letterBox.offsetWidth / 10);
   }, [props.readyToSort])
 
   useEffect(() => {
@@ -24,8 +29,12 @@ const InitArr = (props) => {
   }, [])
 
   const maxWidth = displayWidth - (displayWidth*0.16);
-  const perRow = Math.ceil((maxWidth - props.digits*10) / (props.digits*10 + 3*10));
-  const boxWidth = maxWidth - (maxWidth - (perRow * (props.digits+3) * 10));
+  const unitWidth = props.digits * letterWidth;
+  const fence =  3 * letterWidth;
+  // maxWidth = (perRow * unitWidth) + ((perRow-1)  * fence);
+  const perRow = Math.floor((maxWidth + fence) / (unitWidth + fence));
+  const boxWidth = maxWidth - (maxWidth - (perRow * (props.digits+3) * letterWidth));
+  console.log(`maxWidth: ${maxWidth} - perRow: ${perRow} - boxWidth: ${boxWidth}`);
 
   const numbers = props.array ? props.array : [];
   const rows = [];
@@ -55,7 +64,7 @@ const InitArr = (props) => {
 
 
   const wrapperStyle = () => {
-    const height = props.readyToSort > 0 ? '90vh' : '230px';
+    const height = props.readyToSort > 0 ? '88vh' : '230px';
     return {
       //border: '1px solid #000000',
       margin: '0 0 4vh 0',
