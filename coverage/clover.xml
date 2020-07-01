@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1567534094171" clover="3.2.0">
-  <project timestamp="1567534094171" name="All files">
+<coverage generated="1593605155542" clover="3.2.0">
+  <project timestamp="1593605155542" name="All files">
     <metrics statements="125" coveredstatements="125" conditionals="54" coveredconditionals="53" methods="19" coveredmethods="19" elements="198" coveredelements="197" complexity="0" loc="125" ncloc="125" packages="2" files="9" classes="9"/>
     <package name="algos">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="bubble.js" path="/home/lubuntu/Documents/Sorters/algos/bubble.js">
+      <file name="bubble.js" path="/home/davkedav/Extension/Projects/Sorters/algos/bubble.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="builtin.js" path="/home/lubuntu/Documents/Sorters/algos/builtin.js">
+      <file name="builtin.js" path="/home/davkedav/Extension/Projects/Sorters/algos/builtin.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="count.js" path="/home/lubuntu/Documents/Sorters/algos/count.js">
+      <file name="count.js" path="/home/davkedav/Extension/Projects/Sorters/algos/count.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="heap.js" path="/home/lubuntu/Documents/Sorters/algos/heap.js">
+      <file name="heap.js" path="/home/davkedav/Extension/Projects/Sorters/algos/heap.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="insertion.js" path="/home/lubuntu/Documents/Sorters/algos/insertion.js">
+      <file name="insertion.js" path="/home/davkedav/Extension/Projects/Sorters/algos/insertion.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="merge.js" path="/home/lubuntu/Documents/Sorters/algos/merge.js">
+      <file name="merge.js" path="/home/davkedav/Extension/Projects/Sorters/algos/merge.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="quick.js" path="/home/lubuntu/Documents/Sorters/algos/quick.js">
+      <file name="quick.js" path="/home/davkedav/Extension/Projects/Sorters/algos/quick.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="selection.js" path="/home/lubuntu/Documents/Sorters/algos/selection.js">
+      <file name="selection.js" path="/home/davkedav/Extension/Projects/Sorters/algos/selection.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
     </package>
     <package name="workers">
       <metrics statements="117" coveredstatements="117" conditionals="54" coveredconditionals="53" methods="19" coveredmethods="19"/>
-      <file name="algosBundle.js" path="/home/lubuntu/Documents/Sorters/workers/algosBundle.js">
+      <file name="algosBundle.js" path="/home/davkedav/Extension/Projects/Sorters/workers/algosBundle.js">
         <metrics statements="117" coveredstatements="117" conditionals="54" coveredconditionals="53" methods="19" coveredmethods="19"/>
         <line num="2" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
@@ -63,14 +63,14 @@
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="35" count="11686" type="stmt"/>
-        <line num="37" count="11686" type="stmt"/>
-        <line num="38" count="71944859" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="36235766" type="stmt"/>
-        <line num="40" count="36235766" type="stmt"/>
-        <line num="43" count="11686" type="stmt"/>
+        <line num="35" count="11843" type="stmt"/>
+        <line num="37" count="11843" type="stmt"/>
+        <line num="38" count="71981754" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="36097514" type="stmt"/>
+        <line num="40" count="36097514" type="stmt"/>
+        <line num="43" count="11843" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="51" count="146749" type="stmt"/>
+        <line num="51" count="146846" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="58" count="1" type="cond" truecount="1" falsecount="1"/>
@@ -87,20 +87,20 @@
         <line num="76" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
         <line num="78" count="1" type="stmt"/>
-        <line num="79" count="100000" type="stmt"/>
+        <line num="79" count="99998" type="stmt"/>
         <line num="80" count="12000" type="stmt"/>
         <line num="81" count="12000" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
         <line num="90" count="1" type="stmt"/>
         <line num="92" count="1" type="stmt"/>
-        <line num="93" count="158307" type="stmt"/>
-        <line num="94" count="158307" type="stmt"/>
-        <line num="95" count="158307" type="stmt"/>
-        <line num="97" count="158307" type="cond" truecount="4" falsecount="0"/>
-        <line num="98" count="158307" type="cond" truecount="4" falsecount="0"/>
-        <line num="100" count="158307" type="cond" truecount="2" falsecount="0"/>
-        <line num="101" count="140307" type="stmt"/>
-        <line num="102" count="140307" type="stmt"/>
+        <line num="93" count="158168" type="stmt"/>
+        <line num="94" count="158168" type="stmt"/>
+        <line num="95" count="158168" type="stmt"/>
+        <line num="97" count="158168" type="cond" truecount="4" falsecount="0"/>
+        <line num="98" count="158168" type="cond" truecount="4" falsecount="0"/>
+        <line num="100" count="158168" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="140168" type="stmt"/>
+        <line num="102" count="140168" type="stmt"/>
         <line num="106" count="1" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
         <line num="108" count="6001" type="stmt"/>
@@ -114,12 +114,12 @@
         <line num="126" count="1" type="stmt"/>
         <line num="127" count="12000" type="stmt"/>
         <line num="129" count="12000" type="cond" truecount="2" falsecount="0"/>
-        <line num="130" count="36235766" type="stmt"/>
-        <line num="131" count="36235766" type="stmt"/>
+        <line num="130" count="36097514" type="stmt"/>
+        <line num="131" count="36097514" type="stmt"/>
         <line num="138" count="1" type="stmt"/>
         <line num="139" count="11999" type="stmt"/>
         <line num="141" count="11999" type="cond" truecount="2" falsecount="0"/>
-        <line num="142" count="147631" type="cond" truecount="2" falsecount="0"/>
+        <line num="142" count="147722" type="cond" truecount="2" falsecount="0"/>
         <line num="145" count="11999" type="cond" truecount="2" falsecount="0"/>
         <line num="146" count="11999" type="cond" truecount="2" falsecount="0"/>
         <line num="148" count="11999" type="stmt"/>
@@ -134,30 +134,30 @@
         <line num="163" count="11999" type="stmt"/>
         <line num="165" count="1" type="stmt"/>
         <line num="170" count="1" type="stmt"/>
-        <line num="171" count="106749" type="stmt"/>
+        <line num="171" count="103928" type="stmt"/>
         <line num="174" count="1" type="stmt"/>
-        <line num="175" count="7982" type="stmt"/>
-        <line num="176" count="7982" type="stmt"/>
-        <line num="178" count="7982" type="stmt"/>
-        <line num="179" count="210014" type="cond" truecount="2" falsecount="0"/>
-        <line num="180" count="111321" type="cond" truecount="2" falsecount="0"/>
-        <line num="181" count="111321" type="stmt"/>
-        <line num="184" count="7982" type="stmt"/>
-        <line num="186" count="7982" type="stmt"/>
+        <line num="175" count="7993" type="stmt"/>
+        <line num="176" count="7993" type="stmt"/>
+        <line num="178" count="7993" type="stmt"/>
+        <line num="179" count="202787" type="cond" truecount="2" falsecount="0"/>
+        <line num="180" count="108094" type="cond" truecount="2" falsecount="0"/>
+        <line num="181" count="108094" type="stmt"/>
+        <line num="184" count="7993" type="stmt"/>
+        <line num="186" count="7993" type="stmt"/>
         <line num="189" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="190" count="15965" type="cond" truecount="2" falsecount="0"/>
-        <line num="191" count="7982" type="stmt"/>
-        <line num="192" count="7982" type="stmt"/>
-        <line num="193" count="7982" type="stmt"/>
+        <line num="190" count="15987" type="cond" truecount="2" falsecount="0"/>
+        <line num="191" count="7993" type="stmt"/>
+        <line num="192" count="7993" type="stmt"/>
+        <line num="193" count="7993" type="stmt"/>
         <line num="196" count="1" type="stmt"/>
         <line num="201" count="1" type="stmt"/>
         <line num="204" count="1" type="stmt"/>
         <line num="205" count="11999" type="stmt"/>
         <line num="206" count="11999" type="stmt"/>
         <line num="207" count="71994000" type="cond" truecount="2" falsecount="0"/>
-        <line num="208" count="93707" type="stmt"/>
+        <line num="208" count="95754" type="stmt"/>
         <line num="212" count="11999" type="cond" truecount="2" falsecount="0"/>
-        <line num="213" count="11989" type="stmt"/>
+        <line num="213" count="11990" type="stmt"/>
       </file>
     </package>
   </project>
