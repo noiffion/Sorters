@@ -9,15 +9,17 @@ export default () => {
       let ind;
 
         for (let i = 0; i < len; i++) {
-          ind = i;
+          let current = array[i];
+          ind = i-1;
 
-          while ((ind > 0) && (array[ind-1] > array[ind])) {
-            [array[ind], array[ind-1]] = [array[ind-1], array[ind]];
+          while ((ind >= 0) && (array[ind] > current)) {
+            array[ind+1] = array[ind];
             ind--;
           }
+          array[ind+1] = current;
         }
+      return array;
     }
-
 
     const arr = event.data;
 
