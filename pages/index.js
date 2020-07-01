@@ -47,7 +47,7 @@ const Index = () => {
   useEffect(() => {
     const pn = navigator.hardwareConcurrency;
     setTimeout(() => {
-      setAlertMsg(`You have ${pn} processors in your machine.`);
+      setAlertMsg(`You have ${pn} cores in your machine.`);
       setAlertType('forestgreen');
       setShowAlert(true);
     }, 600);
@@ -73,7 +73,7 @@ const Index = () => {
   const sizeChange = (event) => {
     const arraySize = event.target.value;
     const val = Math.floor(Number(arraySize));
-    if (isNaN(val) || val < 0 || val > 10000000) {
+    if (isNaN(val) || val < 0 || val > 1000000) {
       setCorrect(false);
       if (!showAlert || alertMsg.slice(0, 6) === 'Please') {
         setAlertMsg('Incorrect value!')
@@ -121,7 +121,7 @@ const Index = () => {
     }
 
     setPercent(0);
-    setAlertMsg('Preparing the array...');
+    setAlertMsg('Creating the array...');
     setAlertType('forestgreen');
     setShowAlert(true);
     makeArr(size, digits);
@@ -205,8 +205,8 @@ const Index = () => {
         />
       </Head>
       <main style={{width: '100%'}}>
-      <span 
-        id="letterWidth" 
+      <span
+        id="letterWidth"
         style={{
           fontFamily: `'Roboto Mono', monospace`,
           color: '#FFFFFF',

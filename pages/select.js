@@ -17,7 +17,7 @@ const Select = (props) => {
   return (
     <section style={{width: '100vw', display: 'flex', justifyContent: 'center'}}>
       <Form onSubmit={(event) => event.preventDefault()} style={{maxWidth: '40%', marginTop: '30px'}}>
-       <Form.Text sm={2}> Please, choose a number between 1 and 10,000,000! </Form.Text>
+       <Form.Text sm={2}> Please, choose a number between 1 and 1,000,000! </Form.Text>
         <Form.Group id="arraySize" type="text">
           <Form.Control type="text" size="sm" placeholder="" value={props.size}
             onChange={props.sizeChange} disabled={props.readyToSort}
@@ -37,7 +37,7 @@ const Select = (props) => {
           <div style={{height: '70px', width: '100%'}}> {' '} </div>
         )}
           <Button variant="info" type="submit" block onClick={props.prepareSort}>
-            Make an array
+            Create an array
           </Button>
           {props.readyToSort ? (
             <ButtonGroup style={{width: '100%', marginTop: '10px'}}>

@@ -69,8 +69,7 @@ const SortResult = (props) => {
   const color = props.colorSwitch || gray;
 
   const fName = props.funcName;
-  const FName = fName ? (
-    `${fName.slice(0,1).toUpperCase()}${fName.slice(1)} `) : ' ';
+  const FName = fName ? ( `${fName.slice(0,1).toUpperCase()}${fName.slice(1)} `) : ' ';
 
   const sorted = (
     <div style={sortedStyle(color, fName)}>
